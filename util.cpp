@@ -4,7 +4,10 @@
 #include <algorithm>
 #include "util.h"
 
+
 using namespace std;
+
+
 std::string convToLower(std::string src)
 {
     std::transform(src.begin(), src.end(), src.begin(), ::tolower);
@@ -15,15 +18,36 @@ std::string convToLower(std::string src)
     to a set of words based on the criteria given in the assignment **/
 std::set<std::string> parseStringToWords(string rawWords)
 {
+std::set<char> puncSet = {'.', '\'', ',', ' ', '&'}; 
 
+std::set<string> keywords;
 
+int lastPunc = -1; //index of last punctuation in string
 
+for(size_t i = 0; i < rawWords.length(); i++){
+    string newVal = "";
+    //if the character is a punctuation 
 
+    if(puncSet.find(rawWords[i]) != puncSet.end())
+    {
+        newVal = rawWords.substr(lastPunc + 1, i - lastPunc - 1);
+        lastPunc = i;
+    }
+    else if(i == (rawWords.length() - 1) )
+    {
+        newVal = rawWords.substr(lastPunc + 1, i - lastPunc);
+    }
+    
+  	if(newVal.length() >= 2)
+    {
+        keywords.insert(convToLower(newVal));
+    }
+            
+    
+}
+//potential problem if punctuation is the first char in the string
 
-
-
-
-
+return keywords;
 
 }
 

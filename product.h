@@ -5,6 +5,7 @@
 #include <set>
 #include <vector>
 #include <algorithm>
+#include "util.h"
 
 class Product {
 public:
@@ -46,4 +47,6 @@ protected:
     std::string category_;
 
 };
+
+
 #endif

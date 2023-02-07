@@ -130,8 +130,10 @@ std::string ProductBookParser::categoryID()
  */
 Product* ProductBookParser::makeProduct()
 {
-
-
+    //dynamically allocate a book object and return its pointer
+    Product* retVal = new Book(categoryID(), prodName_, price_, qty_, isbn_, author_);
+    //cout << "I'm making a book just btw thanks" << endl;
+    return retVal;
 }
 
 
@@ -180,13 +182,14 @@ std::string ProductClothingParser::categoryID()
 
 
 /**
- * Your job to fill in the code to create a new clothing product
+ * Your job is to fill in the code to create a new clothing product
  * using the data members in this class and the parent ProductParser class
  */
 Product* ProductClothingParser::makeProduct()
 {
 
-
+    Product* retVal = new Clothing(categoryID(), prodName_, price_, qty_, size_, brand_);
+    return retVal;
 
 }
 
@@ -240,11 +243,13 @@ std::string ProductMovieParser::categoryID()
 
 
 /**
- * Your job to fill in the code to create a new movie product
+ * Your job is to fill in the code to create a new movie product
  * using the data members in this class and the parent ProductParser class
  */
 Product* ProductMovieParser::makeProduct()
 {
 
+    Product* retVal = new Movie(categoryID(), prodName_, price_, qty_, genre_, rating_);
 
+    return retVal;
 }

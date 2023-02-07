@@ -23,6 +23,12 @@ Hidden Figures DVD
 1
 Drama
 PG
+movie
+Troy's Shirt DVD
+18.99
+1
+Horror
+G
 </products>
 <users>
 aturing 100.00 0
